@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 ##Subacz - RBE550 - Baxter Dual Arm Manipulator
 
 ## http://wiki.ros.org/ROS/Tutorials/CreatingPackage
@@ -29,10 +31,14 @@
 import argparse
 import os
 import sys
+
 import rospy
 
+import baxter_interface
+
+# from baxter_interface import CHECK_VERSION
+
 def main():
-    # print("yeet")
     parser = argparse.ArgumentParser()
     parser.add_argument('-s', '--state', const='state',
                         dest='actions', action='append_const',
@@ -56,12 +62,13 @@ def main():
         parser.exit(0, "No action defined")
 
     rospy.init_node('rsdk_robot_enable')
-    rs = baxter_interface.RobotEnable(CHECK_VERSION)
-
+    # rs = baxter_interface.RobotEnable(CHECK_VERSION)
+    rs = baxter_interface.RobotEnable()
+    
     try:
         for act in args.actions:
             if act == 'state':
-                print (rs.state())
+                print rs.state()
             elif act == 'enable':
                 rs.enable()
             elif act == 'disable':

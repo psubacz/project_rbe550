@@ -62,8 +62,9 @@ def main():
         parser.exit(0, "No action defined")
 
     rospy.init_node('rsdk_robot_enable')
-    rs = baxter_interface.RobotEnable(CHECK_VERSION)
-
+    # rs = baxter_interface.RobotEnable(CHECK_VERSION)
+    rs = baxter_interface.RobotEnable()
+    
     try:
         for act in args.actions:
             if act == 'state':

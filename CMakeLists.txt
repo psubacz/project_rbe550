@@ -16,6 +16,8 @@ find_package(catkin REQUIRED COMPONENTS
   baxter_core_msgs
   baxter_maintenance_msgs
   std_msgs
+  baxter_examples
+  baxter_tools
 )
 
 ## System dependencies are found with CMake's conventions
@@ -61,6 +63,8 @@ catkin_package(
   baxter_core_msgs
   baxter_maintenance_msgs
   std_msgs
+  baxter_examples
+  baxter_tools
 )
 
 ## Generate messages in the 'msg' folder
